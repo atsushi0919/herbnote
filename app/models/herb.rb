@@ -1,5 +1,6 @@
 class Herb < ApplicationRecord
-  validates :name, presence: true
+  validates :name, { presence: true, length: { maximum: 20 } }
+  validates :alies, { length: { maximum: 20 } }
   validates :classification, presence: true
   validates :image, presence: true
 

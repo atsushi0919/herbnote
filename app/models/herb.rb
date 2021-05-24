@@ -11,4 +11,7 @@ class Herb < ApplicationRecord
     shurub: 3,
     tree: 4,
   }
+
+  has_many :herb_property_relations
+  has_many :herb_properties, through: :herb_property_relations
 end

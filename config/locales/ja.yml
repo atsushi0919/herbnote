@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      herb: ハーブ
+    attributes:
+      herb:
+        name: 名前
+        alies: 別名
+        classification: 区分
+        image: 画像

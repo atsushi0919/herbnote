@@ -1,0 +1,9 @@
+ja:
+  enums:
+    herb:
+      classification:
+        others: 'その他'
+        epemeral: '一年草'
+        perennial: '多年草'
+        shurub: '低木'
+        tree: '高木'

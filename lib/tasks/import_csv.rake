@@ -15,7 +15,7 @@ namespace :import_csv do
     # CSVファイルからインポートするデータを取得し配列に格納
     CSV.foreach(path, headers: true) do |row|
       row = row.to_h
-      row["plant_type"] = row["plant_type"].to_i
+      row["classification"] = row["classification"].to_i
       list << row
     end
     puts "インポート処理を開始"

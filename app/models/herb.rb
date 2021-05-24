@@ -1,9 +1,9 @@
 class Herb < ApplicationRecord
   validates :name, presence: true
-  validates :plant_type, presence: true
+  validates :classification, presence: true
   validates :image, presence: true
 
-  enum plant_type: {
+  enum classification: {
     others: 0,
     epemeral: 1,
     perennial: 2,

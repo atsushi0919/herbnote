@@ -60,6 +60,39 @@ namespace :import_csv do
       puts e.backtrace # 例外が発生した位置情報
       puts "-------------------------"
       puts "インポート失敗"
+      a
+    end
+  end
+end
+
+namespace :import_csv do
+  # タスクの説明
+  desc "herb_property_relation_data.csv をインポートするタスク"
+
+  # タスク名 => herbs
+  task herb_property_relations: :environment do
+    # インポートするファイルのパスを取得
+    path = "db/csv_data/herb_property_relation_data.csv"
+    # インポートするデータを格納するための配列
+
+    list = []
+    # CSVファイルからインポートするデータを取得し配列に格納
+    CSV.foreach(path, headers: true) do |row|
+      row = row.to_h.map { |key, value| [key, value.to_i] }.to_h
+      list << row
+    end
+    puts "インポート処理を開始"
+    begin
+      HerbPropertyRelation.create!(list)
+      puts "インポート完了!!"
+    rescue StandardError => e
+      # 例外が発生した場合の処理
+      # インポートができなかった場合の例外処理
+      puts "#{e.class}: #{e.message}"
+      puts "-------------------------"
+      puts e.backtrace # 例外が発生した位置情報
+      puts "-------------------------"
+      puts "インポート失敗"
     end
   end
 end

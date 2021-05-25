@@ -6,4 +6,12 @@
 <dd><%= herb.classification_i18n %></dd>
 <dt>画像</dt>
 <dd><%= herb.image %></dd>
+<dt>特徴</dt>
+<dd>
+  <ul>
+    <% herb.herb_properties.each do |property| %>
+      <li><%= property.feature %></li>
+    <% end %>
+  </ul>
+</dd>
 <hr>

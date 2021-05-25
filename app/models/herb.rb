@@ -1,4 +1,7 @@
 class Herb < ApplicationRecord
+  has_many :herb_property_relations, dependent: :destroy
+  has_many :herb_properties, through: :herb_property_relations, dependent: :destroy
+
   validates :name, { presence: true, length: { maximum: 20 } }
   validates :alies, { length: { maximum: 20 } }
   validates :classification, presence: true
@@ -11,7 +14,4 @@ class Herb < ApplicationRecord
     shurub: 3,
     tree: 4,
   }
-
-  has_many :herb_property_relations
-  has_many :herb_properties, through: :herb_property_relations
 end

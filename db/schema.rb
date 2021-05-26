@@ -22,17 +22,18 @@ ActiveRecord::Schema.define(version: 2021_05_24_071947) do
   end
 
   create_table "herb_property_relations", force: :cascade do |t|
-    t.integer "herb_id"
-    t.integer "herb_property_id"
+    t.integer "herb_id", null: false
+    t.integer "herb_property_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["herb_id", "herb_property_id"], name: "index_herb_property_relations_on_herb_id_and_herb_property_id", unique: true
   end
 
   create_table "herbs", force: :cascade do |t|
     t.string "name", null: false
     t.string "alies"
     t.integer "classification", default: 0, null: false
-    t.string "image", default: "noimage.png", null: false
+    t.string "image", default: "noimage.jpg", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

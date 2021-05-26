@@ -4,7 +4,7 @@ RSpec.describe HerbProperty, type: :model do
   describe "バリデーション" do
     subject { herb_property.valid? }
 
-    context "データが条件を満たすとき" do
+    context "全て正しいパラメータが渡されたとき" do
       # factory_bot_rails を使用 => build(:herb_property)
       let(:herb_property) { build(:herb_property) }
       it "保存できる" do

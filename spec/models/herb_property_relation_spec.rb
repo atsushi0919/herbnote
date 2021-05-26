@@ -7,7 +7,7 @@ RSpec.describe HerbPropertyRelation, type: :model do
     let(:herb) { Herb.create(name: "バジル") }
     let(:herb_property) { create(:herb_property) }
 
-    context "データが条件を満たすとき" do
+    context "全て正しいパラメータが渡されたとき" do
       let(:herb_property_relation) {
         build(:herb_property_relation,
               herb_id: herb.id,

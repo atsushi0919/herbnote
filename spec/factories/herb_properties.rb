@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :herb_property do
-    feature { "MyString" }
+    feature { "feature_string" }
   end
 end

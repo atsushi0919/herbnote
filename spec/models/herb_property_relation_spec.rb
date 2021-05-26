@@ -103,5 +103,20 @@ RSpec.describe HerbPropertyRelation, type: :model do
         expect(HerbPropertyRelation.all.size).to eq 0
       end
     end
+
+    context "herb_property を削除したとき" do
+      let(:herb_property_relation) {
+        build(:herb_property_relation,
+              herb_id: herb.id,
+              herb_property_id: herb_property.id)
+      }
+      it "herb_property_relation も削除される" do
+        expect(subject).to eq true
+        herb_property_relation.save
+        expect(HerbPropertyRelation.all.size).to eq 1
+        herb_property.destroy
+        expect(HerbPropertyRelation.all.size).to eq 0
+      end
+    end
   end
 end

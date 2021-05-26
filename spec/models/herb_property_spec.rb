@@ -13,7 +13,7 @@ RSpec.describe HerbProperty, type: :model do
     end
 
     context "feature が空のとき" do
-      let(:herb_property) { build(:herb_property, feature: "") }
+      let(:herb_property) { build(:herb_property, feature: " ") }
       it "保存出来ない" do
         expect(subject).to eq false
         expect(herb_property.errors.messages[:feature]).to \

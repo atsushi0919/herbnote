@@ -2,9 +2,6 @@
 <p><%= @herb.name %></p>
 <p><%= @herb.alies %></p>
 <p><%= @herb.classification_i18n %></p>
-<% renderer = Redcarpet::Render::HTML %>
-<% extensions = { tables: true } %>
-<% markdown = Redcarpet::Markdown.new(renderer, extensions) %>
 <!-- マークダウンのテスト -->
 <%
 text = <<~"EOS"
@@ -15,12 +12,7 @@ text = <<~"EOS"
 
 - リスト1
 - リスト2
-- <font color="red">リスト3</font>
-
-- 食べ物
-  - 沖縄そば
-  - ゴーヤーチャンプルー
-  - タコライス
+- **<font color="red">リスト3</font>**
 
 `Ruby on Rails`
 
@@ -39,4 +31,4 @@ post | GET | /posts/:id | posts#show
 ---
 EOS
 %>
-<%= markdown.render(text).html_safe %>
+<%= markdown(text) %>

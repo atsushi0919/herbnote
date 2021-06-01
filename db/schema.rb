@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_24_071947) do
+ActiveRecord::Schema.define(version: 2021_06_01_012356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "herb_descriptions", force: :cascade do |t|
+    t.integer "herb_id", null: false
+    t.text "overview"
+    t.text "how_to_use"
+    t.text "how_to_grow"
+    t.text "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "herb_properties", force: :cascade do |t|
     t.string "feature", null: false

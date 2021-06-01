@@ -5,6 +5,7 @@ class HerbsController < ApplicationController
 
   def show
     @herb = Herb.find(params[:id])
+    @description = @herb.herb_description
   end
 
   def new

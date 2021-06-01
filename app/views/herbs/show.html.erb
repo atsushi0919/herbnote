@@ -2,10 +2,10 @@
 <p><%= @herb.name %></p>
 <p><%= @herb.alies %></p>
 <p><%= @herb.classification_i18n %></p>
-<p><%= @description.overview %></p>
-<p><%= @description.how_to_use %></p>
-<p><%= @description.how_to_grow %></p>
-<p><%= @description.note %></p>
+<p><%= markdown @description.overview %></p>
+<p><%= markdown @description.how_to_use %></p>
+<p><%= markdown @description.how_to_grow %></p>
+<%= markdown @description.note %>
 <!-- マークダウンのテスト -->
 <%
 text = <<~"EOS"

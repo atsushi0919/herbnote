@@ -9,7 +9,6 @@ namespace :import_csv do
     # インポートするファイルのパスを取得
     path = "db/csv_data/herb_data.csv"
     # インポートするデータを格納するための配列
-
     list = []
     # CSVファイルからインポートするデータを取得し配列に格納
     CSV.foreach(path, headers: true) do |row|
@@ -17,7 +16,7 @@ namespace :import_csv do
       row["classification"] = row["classification"].to_i
       list << row
     end
-    puts "インポート処理を開始"
+    puts "herb_data インポート処理を開始"
     begin
       Herb.create!(list)
       puts "インポート完了!!"
@@ -42,13 +41,12 @@ namespace :import_csv do
     # インポートするファイルのパスを取得
     path = "db/csv_data/herb_property_data.csv"
     # インポートするデータを格納するための配列
-
     list = []
     # CSVファイルからインポートするデータを取得し配列に格納
     CSV.foreach(path, headers: true) do |row|
       list << row
     end
-    puts "インポート処理を開始"
+    puts "herb_property_data インポート処理を開始"
     begin
       HerbProperty.create!(list)
       puts "インポート完了!!"
@@ -74,14 +72,13 @@ namespace :import_csv do
     # インポートするファイルのパスを取得
     path = "db/csv_data/herb_property_relation_data.csv"
     # インポートするデータを格納するための配列
-
     list = []
     # CSVファイルからインポートするデータを取得し配列に格納
     CSV.foreach(path, headers: true) do |row|
       row = row.to_h.map { |key, value| [key, value.to_i] }.to_h
       list << row
     end
-    puts "インポート処理を開始"
+    puts "herb_property_relation_data インポート処理を開始"
     begin
       HerbPropertyRelation.create!(list)
       puts "インポート完了!!"
@@ -105,7 +102,6 @@ namespace :import_csv do
   task herb_descriptions: :environment do
     # インポートするファイルのパスを取得
     path = "db/csv_data/herb_description_data.csv"
-
     # インポートするデータを格納するための配列
     list = []
     # CSVファイルからインポートするデータを取得し配列に格納
@@ -114,7 +110,7 @@ namespace :import_csv do
       row["herb_id"] = row["herb_id"].to_i
       list << row
     end
-    puts "インポート処理を開始"
+    puts "herb_description_data インポート処理を開始"
     begin
       HerbDescription.create!(list)
       puts "インポート完了!!"

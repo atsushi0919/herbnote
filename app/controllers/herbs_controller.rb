@@ -1,6 +1,8 @@
 class HerbsController < ApplicationController
+  PER_PAGE = 5
+
   def index
-    @herbs = Herb.order(:name)
+    @herbs = Herb.order(:name).page(params[:page]).per(PER_PAGE)
   end
 
   def show

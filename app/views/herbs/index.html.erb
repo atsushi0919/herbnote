@@ -1,4 +1,9 @@
 <h1>一覧表示</h1>
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_or_alies_cont, "名前" %>
+  <%= f.search_field :name_or_alies_cont %>
+  <%= f.submit "検索" %>
+<% end %>
 <dl>
   <hr>
   <%= render @herbs %>

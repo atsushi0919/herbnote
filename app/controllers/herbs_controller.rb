@@ -2,7 +2,8 @@ class HerbsController < ApplicationController
   PER_PAGE = 5
 
   def index
-    @herbs = Herb.order(:name).page(params[:page]).per(PER_PAGE)
+    @q = Herb.order(:name).ransack(params[:q])
+    @herbs = @q.result.page(params[:page]).per(PER_PAGE)
   end
 
   def show

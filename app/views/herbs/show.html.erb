@@ -3,38 +3,17 @@
 <p><%= @herb.alies %></p>
 <p><%= @herb.classification_i18n %></p>
 <% unless @description.nil? %>
+  <hr>
+  <h2>概要</h2>
   <p><%= markdown @description.overview %></p>
+  <hr>
+  <h2>利用方法</h2>
   <p><%= markdown @description.how_to_use %></p>
+  <hr>
+  <h2>栽培方法</h2>
   <p><%= markdown @description.how_to_grow %></p>
+  <hr>
+  <h2>備考</h2>
   <%= markdown @description.note %>
+  <hr>
 <% end %>
-<!-- マークダウンのテスト -->
-<%
-text = <<~"EOS"
----
-# マークダウン
-## ヒアドキュメント
-### test dayo
-
-- リスト1
-- リスト2
-- **<font color="red">リスト3</font>**
-
-`Ruby on Rails`
-
-[Google のリンク](https://www.google.com)
-
-Prefix | HTTPメソッド | URL | Controller#Action
---- | --- | --- | ---
-posts | GET | /posts | posts#index
-〃 | POST | /posts | posts#create
-new_post | GET | /posts/new | posts#new
-edit_post | GET | /posts/:id/edit | posts#edit
-post | GET | /posts/:id | posts#show
-〃 | PATCH | /posts/:id | posts#update
-〃 | PUT | /posts/:id | posts#update
-〃 | DELETE | /posts/:id | posts#destroy
----
-EOS
-%>
-<%= markdown(text) %>

@@ -1,4 +1,93 @@
-// @import 'reset';
+@charset "utf-8";
+//@import 'reset';
+
+html {
+  font-size: 100%;
+  font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, Osaka,
+    'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}
+
+body {
+  color: black;
+  font-size: 0.9rem;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+img {
+  /* 画像が画面の横幅からはみ出るのを防ぐ */
+  max-width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+/* h1タグ用 */
+.site-title {
+  width: 180px;
+  line-height: 1px;
+  padding: 10px 0;
+}
+
+.site-title a {
+  display: block;
+}
+
+/* h2タグ用 */
+.section-title {
+  display: inline-block;
+  font-size: 2rem;
+  text-align: center;
+  width: 120px;
+  margin-bottom: 60px;
+  border-bottom: solid 1px darkslategray;
+}
+
+/* h3タグ用 */
+.content-title {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+/* wrapper */
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto 100px auto;
+  padding: 0 4%;
+  text-align: center;
+}
+
+/*----------
+header
+----------*/
+
+#header {
+  display: flex; // h1とnavを横並びにする
+  justify-content: space-between; // 両端に揃える
+  align-items: center; // 高さを中央に揃える
+  margin: 0 auto; // margin 縦0px 横中央
+}
+
+#header ul {
+  display: flex; // liタグを横並びにする
+  padding: 10px 0; // padding 縦10px 横0px
+}
+
+#header li {
+  margin-left: 30px;
+}
+
+#header li a {
+  color: #13161a;
+}
+
+#header li a:hover {
+  opacity: 0.7; // マウスオーバー時透ける
+}
 
 // 動作確認
 img.herb-image {

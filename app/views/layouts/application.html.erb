@@ -5,12 +5,22 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <!-- header 仮置き -->
+    <header id="header" class="wrapper">
+      <h1 class="site-title">
+        <%= link_to "HERB NOTE", root_path, class: "logo" %>
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#works">Works</a></li>
+        </ul>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>

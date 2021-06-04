@@ -1,19 +1,21 @@
-<h1>SHOW</h1>
-<p><%= @herb.name %></p>
-<p><%= @herb.alies %></p>
-<p><%= @herb.classification_i18n %></p>
-<% unless @description.nil? %>
-  <hr>
-  <h2>概要</h2>
-  <p><%= markdown @description.overview %></p>
-  <hr>
-  <h2>利用方法</h2>
-  <p><%= markdown @description.how_to_use %></p>
-  <hr>
-  <h2>栽培方法</h2>
-  <p><%= markdown @description.how_to_grow %></p>
-  <hr>
-  <h2>備考</h2>
-  <%= markdown @description.note %>
-  <hr>
-<% end %>
+<div class="wrapper">
+  <h1>SHOW</h1>
+  <p><%= @herb.name %></p>
+  <p><%= @herb.alies %></p>
+  <p><%= @herb.classification_i18n %></p>
+  <% unless @description.nil? %>
+    <hr>
+    <h2>概要</h2>
+    <p><%= markdown @description.overview %></p>
+    <hr>
+    <h2>利用方法</h2>
+    <p><%= markdown @description.how_to_use %></p>
+    <hr>
+    <h2>栽培方法</h2>
+    <p><%= markdown @description.how_to_grow %></p>
+    <hr>
+    <h2>備考</h2>
+    <%= markdown @description.note %>
+    <hr>
+  <% end %>
+</div>

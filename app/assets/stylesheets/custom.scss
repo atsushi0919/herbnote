@@ -89,7 +89,48 @@ header
   opacity: 0.7; // マウスオーバー時透ける
 }
 
-// 動作確認
-img.herb-image {
-  width: 200px;
+/* ----------
+カード
+---------- */
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+.card_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  width: 280px;
+  margin: 1rem;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.16);
+  color: #212121;
+  text-decoration: none;
+}
+
+.card_title {
+  padding: 1rem 1rem 0;
+  font-size: 1.25rem;
+}
+
+.card_thumbnail {
+  margin: 0;
+}
+
+.card_image {
+  width: 100%;
+}
+
+.card_body {
+  padding: 1rem;
+}
+
+.card_icon ul {
+  display: flex;
+  flex-wrap: wrap;
 }

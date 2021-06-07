@@ -1,5 +1,5 @@
 class HerbsController < ApplicationController
-  PER_PAGE = 5
+  PER_PAGE = 20
 
   def index
     @q = Herb.includes([:herb_properties]).order(:name).ransack(params[:q])

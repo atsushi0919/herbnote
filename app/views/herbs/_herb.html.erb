@@ -1,20 +1,22 @@
-<dt>名前</dt>
-<dd><%= herb.name %></dd>
-<dt>別名</dt>
-<dd><%= herb.alies %></dd>
-<dt>種類</dt>
-<dd><%= herb.classification_i18n %></dd>
-<dt>画像</dt>
-<dd>
-  <%= image_tag "noimage.jpg", class: "herb-image", alt: "image" %>
-</dd>
-<dt>特徴</dt>
-<dd>
-  <ul>
-    <% herb.herb_properties.each do |property| %>
-      <li><%= image_tag "#{property.feature}.png" %></li>
-    <% end %>
-  </ul>
-</dd>
-<%= link_to "SHOW", herb, method: :get %>
-<hr>
+<article class="card">
+  <div class="card_header">
+    <figure class="card_thumbnail">
+      <%= image_tag "noimage.jpg", class: "card_image", alt: "image" %>
+    </figure>
+    <h3 class="card_title">
+      <%= herb.name %>
+    </h3>
+  </div>
+  <div class="card_text">
+    <p><%= herb.alies %></p>
+    <p><%= herb.classification_i18n %></p>
+    <div class = "card_icon">
+      <ul>
+        <% herb.herb_properties.each do |property| %>
+          <li><%= image_tag "#{property.feature}.png" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <%= link_to "SHOW", herb, method: :get %>
+</article>

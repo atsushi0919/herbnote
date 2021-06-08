@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  root "herbs#index"  # 仮top
+  get "/home", to: "static_pages#home"
+  get "/about", to: "static_pages#about"
+  # root "static_pages#home"
+  root "herbs#index"
   resources :herbs
 end

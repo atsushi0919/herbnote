@@ -1,5 +1,5 @@
 @charset "utf-8";
-//@import 'reset';
+// @import 'reset';
 
 html {
   font-size: 100%;
@@ -28,9 +28,8 @@ li {
 
 /* h1タグ用 */
 .site-title {
-  width: 180px;
   line-height: 1px;
-  padding: 10px 0;
+  padding: 10px;
 }
 
 .site-title a {
@@ -70,6 +69,15 @@ header
   justify-content: space-between; // 両端に揃える
   align-items: center; // 高さを中央に揃える
   margin: 0 auto; // margin 縦0px 横中央
+}
+
+#header img {
+  width: 48px;
+  height: 48px;
+}
+
+#header .top-link {
+  display: flex;
 }
 
 #header ul {

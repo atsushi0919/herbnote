@@ -1,8 +1,8 @@
-<!-- header 仮置き -->
 <header id="header" class="wrapper">
-  <h1 class="site-title">
-    <%= link_to "HERB NOTE", home_path, class: "logo" %>
-  </h1>
+  <%= link_to home_path, class: "top-link" do %>
+    <%= image_tag "logo2.png" %>
+    <h1 class="site-title">HERB NOTE</h1>
+  <% end %>
   <nav>
     <ul>
       <li><%= link_to "Home", home_path %></li>

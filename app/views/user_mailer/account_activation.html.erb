@@ -1,0 +1,10 @@
+<h1>HerbNote</h1>
+<p>
+  <%= @user.name %> 様
+</p>
+<p>
+  HerbNote へお申込み頂きまして誠にありがとうございます。<br>
+  以下のURLにアクセスし、アカウントの本登録をお願い致します。
+</p>
+<%= link_to "アカウントの有効化", edit_account_activation_url(@user.activation_token,
+                                                    email: @user.email) %>

@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "noreply@herbnote.com"
+  # 送信元の表示
+  default from: "HerbNote <info@herbnote.jaigotec.com>"
   layout "mailer"
 end

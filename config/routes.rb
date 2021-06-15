@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
   root "static_pages#home"
   get "/home", to: "static_pages#home"
   get "/about", to: "static_pages#about"
@@ -13,4 +14,5 @@ Rails.application.routes.draw do
   resources :herbs
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :posts, only: [:create, :destroy]
 end

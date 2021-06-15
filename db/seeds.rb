@@ -21,6 +21,13 @@ if Rails.env.development?
                  activated_at: Time.zone.now)
   end
 
+  # ユーザーの一部を対象にマイクロポストを生成する
+  users = User.order(:created_at).take(6)
+  50.times do
+    content = Faker::Lorem.sentence(word_count: 5)
+    users.each { |user| user.posts.create!(content: content) }
+  end
+
   # 管理者ユーザーを作成する
   AdminUser.create!(email: "hatake0919@yahoo.co.jp",
                     password: "password",

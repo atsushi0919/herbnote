@@ -30,6 +30,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 # herbnote
 
+# AWS S3
+gem 'fog-aws', '~> 3.10'
 # 列挙型
 gem 'enum_help'
 # マークダウン

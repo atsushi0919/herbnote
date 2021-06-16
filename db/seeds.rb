@@ -1,5 +1,5 @@
 if Rails.env.development?
-  #メインのサンプルユーザーを1人作成する
+  #メインのサンプルユーザーを1人作成
   User.create!(name: "atsushi_0919_",
                email: "hatake0919@yahoo.co.jp",
                password: "password",
@@ -8,7 +8,7 @@ if Rails.env.development?
                activated: true,
                activated_at: Time.zone.now)
 
-  # 追加のユーザーをまとめて生成する
+  # 追加のユーザーをまとめて生成
   99.times do |n|
     name = Faker::Name.name
     email = "example-#{n + 1}@railstutorial.org"
@@ -21,12 +21,20 @@ if Rails.env.development?
                  activated_at: Time.zone.now)
   end
 
-  # ユーザーの一部を対象にマイクロポストを生成する
+  # ユーザーの一部を対象にマイクロポストを生成
   users = User.order(:created_at).take(6)
   50.times do
     content = Faker::Lorem.sentence(word_count: 5)
     users.each { |user| user.posts.create!(content: content) }
   end
+
+  # フォローの関係を生成
+  users = User.all
+  user = users.first
+  following = users[2..50]
+  followers = users[3..40]
+  following.each { |followed| user.follow(followed) }
+  followers.each { |follower| follower.follow(user) }
 
   # 管理者ユーザーを作成する
   AdminUser.create!(email: "hatake0919@yahoo.co.jp",

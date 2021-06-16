@@ -8,7 +8,7 @@ class PostsController < ApplicationController
       flash[:success] = "Post created!"
       redirect_to root_url
     else
-      @feed_items = current_user.feed.page(params[:page]).per(ITEMS_PER_PAGE)
+      @feed_items = current_user.page(params[:page]).per(ITEMS_PER_PAGE)
       render "static_pages/home"
     end
   end

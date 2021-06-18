@@ -3,4 +3,5 @@ class HerbProperty < ApplicationRecord
 
   has_many :herb_property_relations, dependent: :destroy
   has_many :herbs, through: :herb_property_relations, dependent: :destroy
+  has_many :posts, through: :posted_topics, dependent: :destroy
 end

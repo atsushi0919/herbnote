@@ -1,4 +1,5 @@
 <%= @user.name %> 様
 HerbNoteへのご登録ありがとうございます。
-Welcome to the Sample App! Click on the link below to activate your account:
+次のリンクをクリックし、アカウントの有効化して下さい。
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+※ このメールにお心当たりがない場合は、大変お手数ですがメールの削除をお願い致します。

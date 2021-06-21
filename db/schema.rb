@@ -74,13 +74,6 @@ ActiveRecord::Schema.define(version: 2021_06_21_024733) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "posted_topic_relations", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "topic_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "posted_topics", force: :cascade do |t|
     t.bigint "post_id", null: false
     t.bigint "herb_property_id", null: false

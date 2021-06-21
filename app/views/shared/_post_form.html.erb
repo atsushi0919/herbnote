@@ -1,15 +1,8 @@
 <%= form_with(model: @post, local: true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <%= f.collection_select :herb_id, Herb.all, :id, :name, include_blank: "選択してください" %>
-  <ul>
-    <% @topics.each do |topic| %>
-      <li>
-        <% if File.exist? "#{Rails.root}/app/assets/images/#{topic.feature}.png" %>
-          <%= image_tag "#{topic.feature}.png" %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
+  <!-- check box -->
+  <%= f.collection_check_boxes(:herb_property_ids, HerbProperty.all, :id, :feature) %>
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new post..." %>
   </div>

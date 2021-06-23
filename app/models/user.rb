@@ -1,5 +1,9 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
+  has_many :favorite_herbs, dependent: :destroy
+  # お気に入り登録しているハーブ一覧
+  has_many :favorited_herbs, through: :favorite_herbs, source: :herb
+
   # 能動的関係 フォローする
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",

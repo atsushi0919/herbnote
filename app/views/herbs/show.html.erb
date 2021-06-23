@@ -1,6 +1,17 @@
 <% provide(:title, "詳細情報") %>
 <div class="wrapper">
   <h1>SHOW</h1>
+  <p id="herb-<%= @herb.id %>">
+    <% if logged_in? %>
+      <% if @herb.favorited_by?(current_user) %>
+        <!-- お気に入り:登録済み => 押すと解除 -->
+        <%= render "favorite", herb: @herb %>
+      <% else %>
+        <!-- お気に入り:未登録 => 押すと登録 -->
+        <%= render "unfavorite", herb: @herb %>
+      <% end %>
+    <% end %>
+  </p>
   <p><%= @herb.name %></p>
   <p><%= @herb.alies %></p>
   <p><%= @herb.classification_i18n %></p>

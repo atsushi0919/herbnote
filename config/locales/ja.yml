@@ -11,6 +11,8 @@ ja:
   activerecord:
     models:
       herb: ハーブ
+      post: 投稿
+      favorite_herb: お気に入りハーブ
     attributes:
       herb:
         name: 名前

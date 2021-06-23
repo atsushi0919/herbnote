@@ -2,7 +2,7 @@ class HerbsController < ApplicationController
   PER_PAGE = 20
 
   def index
-    @q = Herb.includes([:herb_properties]).order(:name).ransack(params[:q])
+    @q = Herb.includes([:herb_properties, :favorite_herbs]).order(:name).ransack(params[:q])
     @herbs = @q.result.page(params[:page]).per(PER_PAGE)
   end
 

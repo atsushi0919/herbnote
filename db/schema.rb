@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_21_024733) do
+ActiveRecord::Schema.define(version: 2021_06_23_075007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(version: 2021_06_21_024733) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "favorite_herbs", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "herb_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["herb_id"], name: "index_favorite_herbs_on_herb_id"
+    t.index ["user_id", "herb_id"], name: "index_favorite_herbs_on_user_id_and_herb_id", unique: true
+    t.index ["user_id"], name: "index_favorite_herbs_on_user_id"
   end
 
   create_table "herb_descriptions", force: :cascade do |t|
@@ -72,6 +82,7 @@ ActiveRecord::Schema.define(version: 2021_06_21_024733) do
     t.string "image", default: "noimage.jpg", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "favorite_count"
   end
 
   create_table "posted_topics", force: :cascade do |t|
@@ -120,6 +131,8 @@ ActiveRecord::Schema.define(version: 2021_06_21_024733) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "favorite_herbs", "herbs"
+  add_foreign_key "favorite_herbs", "users"
   add_foreign_key "posted_topics", "herb_properties"
   add_foreign_key "posted_topics", "posts"
   add_foreign_key "posts", "users"

@@ -1,7 +1,3 @@
 <!-- お気に入り:登録済み => 押すと解除 -->
 <%= link_to "★★★", herb_favorite_herbs_path(herb), method: :delete, remote: true %>
-<% if herb.favorite_count.nil? %>
-  <%= herb.name %>
-<%else%>
-  <%= herb.favorite_count %>
-<% end %>
+<%= herb.favorite_count %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_23_075007) do
+ActiveRecord::Schema.define(version: 2021_07_01_030530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,16 @@ ActiveRecord::Schema.define(version: 2021_06_23_075007) do
     t.integer "favorite_count"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id", "post_id"], name: "index_likes_on_user_id_and_post_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "posted_topics", force: :cascade do |t|
     t.bigint "post_id", null: false
     t.bigint "herb_property_id", null: false
@@ -101,6 +111,7 @@ ActiveRecord::Schema.define(version: 2021_06_23_075007) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
     t.integer "herb_id"
+    t.integer "likes_count", default: 0
     t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -133,6 +144,8 @@ ActiveRecord::Schema.define(version: 2021_06_23_075007) do
 
   add_foreign_key "favorite_herbs", "herbs"
   add_foreign_key "favorite_herbs", "users"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
   add_foreign_key "posted_topics", "herb_properties"
   add_foreign_key "posted_topics", "posts"
   add_foreign_key "posts", "users"

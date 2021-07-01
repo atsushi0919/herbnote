@@ -7,6 +7,13 @@
   </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(post.created_at) %> 前
+    <p id="likes-<%= post.id %>">
+      <% if post.liked_by?(current_user) %>
+        <%= render "posts/like", post: post %>
+      <% else %>
+        <%= render "posts/dislike", post: post %>
+      <% end %>
+    </p>
     <% if current_user?(post.user) %>
       <%= link_to "delete", post, method: :delete,
                                   data: { confirm: "You sure?" } %>

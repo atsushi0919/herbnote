@@ -12,6 +12,7 @@ ja:
     models:
       herb: ハーブ
       post: 投稿
+      like: いいね
       favorite_herb: お気に入りハーブ
     attributes:
       herb:
